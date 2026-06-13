@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xavi Peña — Data Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #F5C518;
+    --black: #0D0D0D;
+    --gray: #8C8C8C;
+    --gray-light: #E5E5E5;
+    --white: #FFFFFF;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 48px;
+  }
+
+  .logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .logo span {
+    color: var(--yellow);
+  }
+
+  nav a {
+    font-size: 14px;
+    color: var(--gray);
+    text-decoration: none;
+    margin-left: 24px;
+    transition: color 0.2s ease;
+  }
+
+  nav a:hover {
+    color: var(--black);
+  }
+
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+  }
+
+  .content {
+    max-width: 720px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 24px;
+  }
+
+  .eyebrow .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--yellow);
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(40px, 8vw, 72px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+
+  h1 .accent {
+    color: var(--yellow);
+    -webkit-text-stroke: 2px var(--black);
+    text-stroke: 2px var(--black);
+  }
+
+  .subtitle {
+    font-size: 18px;
+    color: var(--gray);
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0 auto 40px;
+  }
+
+  .subtitle strong {
+    color: var(--black);
+    font-weight: 500;
+  }
+
+  .chart {
+    width: 100%;
+    max-width: 480px;
+    height: 100px;
+    margin: 0 auto 40px;
+    display: block;
+  }
+
+  .links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .links a {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 100px;
+    border: 1px solid var(--black);
+    color: var(--black);
+    transition: all 0.2s ease;
+  }
+
+  .links a.primary {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  .links a.primary:hover {
+    background: var(--yellow);
+    border-color: var(--yellow);
+    color: var(--black);
+  }
+
+  .links a.secondary:hover {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  footer {
+    text-align: center;
+    padding: 32px;
+    font-size: 13px;
+    color: var(--gray);
+  }
+
+  footer a {
+    color: var(--gray);
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    color: var(--black);
+  }
+
+  @media (max-width: 480px) {
+    header {
+      padding: 24px;
+    }
+    nav a {
+      margin-left: 16px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">xavi<span>peña</span></div>
+  <nav>
+    <a href="https://www.linkedin.com/in/xavi-pe%C3%B1a-gallego-06b857101/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/xavipena-data" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<main>
+  <div class="content">
+    <p class="eyebrow"><span class="dot"></span>Portfolio launching September 2026</p>
+
+    <h1>Data, <span class="accent">analytics</span><br>&amp; AI portfolio</h1>
+
+    <p class="subtitle">
+      Building a collection of <strong>Power BI</strong>, <strong>Python</strong> and <strong>AI agent</strong>
+      projects over the summer. Currently studying for <strong>PL-300</strong> and reworking the data stack
+      around the Microsoft ecosystem.
+    </p>
+
+    <svg class="chart" viewBox="0 0 480 100" role="img" aria-label="Ascending bar chart with trend line, representing progress over the summer">
+      <g>
+        <rect x="0" y="68" width="14" height="32" fill="#E5E5E5"/>
+        <rect x="17" y="56" width="14" height="44" fill="#F5C518"/>
+        <rect x="34" y="76" width="14" height="24" fill="#8C8C8C"/>
+        <rect x="51" y="46" width="14" height="54" fill="#E5E5E5"/>
+        <rect x="68" y="64" width="14" height="36" fill="#8C8C8C"/>
+        <rect x="85" y="40" width="14" height="60" fill="#F5C518"/>
+        <rect x="102" y="70" width="14" height="30" fill="#E5E5E5"/>
+        <rect x="119" y="52" width="14" height="48" fill="#8C8C8C"/>
+        <rect x="136" y="34" width="14" height="66" fill="#F5C518"/>
+        <rect x="153" y="62" width="14" height="38" fill="#E5E5E5"/>
+        <rect x="170" y="42" width="14" height="58" fill="#8C8C8C"/>
+        <rect x="187" y="68" width="14" height="32" fill="#E5E5E5"/>
+        <rect x="204" y="28" width="14" height="72" fill="#F5C518"/>
+        <rect x="221" y="50" width="14" height="50" fill="#8C8C8C"/>
+        <rect x="238" y="36" width="14" height="64" fill="#E5E5E5"/>
+        <rect x="255" y="58" width="14" height="42" fill="#8C8C8C"/>
+        <rect x="272" y="22" width="14" height="78" fill="#F5C518"/>
+        <rect x="289" y="48" width="14" height="52" fill="#E5E5E5"/>
+        <rect x="306" y="32" width="14" height="68" fill="#8C8C8C"/>
+        <rect x="323" y="54" width="14" height="46" fill="#E5E5E5"/>
+        <rect x="340" y="16" width="14" height="84" fill="#F5C518"/>
+        <rect x="357" y="40" width="14" height="60" fill="#8C8C8C"/>
+        <rect x="374" y="26" width="14" height="74" fill="#E5E5E5"/>
+        <rect x="391" y="44" width="14" height="56" fill="#8C8C8C"/>
+        <rect x="408" y="10" width="14" height="90" fill="#F5C518"/>
+        <rect x="425" y="30" width="14" height="70" fill="#E5E5E5"/>
+        <rect x="442" y="20" width="14" height="80" fill="#8C8C8C"/>
+        <rect x="459" y="6" width="14" height="94" fill="#F5C518"/>
+      </g>
+      <polyline points="0,86 51,73 102,86 153,80 204,52 255,76 306,64 357,68 408,38 459,30 473,28"
+        fill="none" stroke="#0D0D0D" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+
+    <div class="links">
+      <a class="primary" href="https://www.linkedin.com/in/xavi-pe%C3%B1a-gallego-06b857101/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      <a class="secondary" href="mailto:xavi@xavipena.com">xavi@xavipena.com</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  &copy; 2026 Xavi Peña &middot; xavipena.com
+</footer>
+
+</body>
+</html>
