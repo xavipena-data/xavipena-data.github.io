@@ -61,7 +61,7 @@
           container.innerHTML += `
             <a href="${p.link}" ${isExternal ? 'target="_blank"' : ''} class="card" style="display:block;">
               <div class="card-img" style="background: var(--gray-dark); height: 200px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
-                <img src="${p.thumbnail}" alt="${p.title}" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
+                <img src="/${p.thumbnail}" alt="${p.title}" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
               </div>
               <div class="card-body">
                 <p class="card-category">${p.category}</p>
