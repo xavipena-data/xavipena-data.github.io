@@ -70,14 +70,14 @@
   <script src="assets/js/main.js"></script>
   <script>
     // Load featured projects preview (max 3)
-    fetch('projects.json')
+    fetch('/projects.json')
       .then(r => r.json())
       .then(data => {
         const container = document.getElementById('featured-preview');
         const featured = data.portfolio.filter(p => p.home === true);
         featured.forEach(p => {
           container.innerHTML += `
-            <a href="portfolio.html" class="card" style="display:block; text-decoration:none;">
+            <a href="${p.link}" ${p.link.startsWith('http') ? 'target="_blank"' : ''} class="card" style="display:block; text-decoration:none;">
               <div class="card-img" style="background: var(--gray-dark); height: 180px; display:flex; align-items:center; justify-content:center;">
                 <span style="color: var(--gray); font-size: 13px;">thumbnail</span>
               </div>
