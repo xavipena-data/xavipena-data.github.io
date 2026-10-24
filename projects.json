@@ -1,0 +1,70 @@
+{
+  "portfolio": [
+    {
+      "id": "port-watch-agent",
+      "title": "Port Watch Agent",
+      "description": "Multi-agent maritime traffic monitoring system using live AIS data. Detects port congestion patterns and generates executive reports in natural language.",
+      "category": "AI Agents",
+      "featured_category": "ai-agents",
+      "tags": ["Python", "Google ADK", "MCP", "Gemini", "AISstream", "Flask"],
+      "featured": true,
+      "home": true,      
+      "link": "https://github.com/xavipena-data/port-watch-agent",
+      "thumbnail": "assets/img/projects/port-watch-agent.jpg",
+      "date": "2026-07-06"
+    },
+    {
+      "id": "financial-dashboard",
+      "title": "Financial Markets Dashboard",
+      "description": "Interactive Power BI dashboard tracking S&P 500 performance, sector rotation and key market indicators with real financial data.",
+      "category": "Power BI",
+      "featured_category": "power-bi",
+      "tags": ["Power BI", "DAX", "Finance", "yfinance"],
+      "featured": true,
+      "home": true,
+      "link": "https://github.com/xavipena-data/northpeak-powerbi-financial-dashboard",
+      "thumbnail": "assets/img/projects/financial-dashboard.jpg",
+      "date": "2026-10-09"
+    },
+    {
+      "id": "bts-delay-analysis",
+      "title": "US Flight Delay Propagation",
+      "description": "Python analysis of delay propagation through aircraft rotation using BTS On-Time Performance data. Built with DuckDB and Parquet for efficient large-scale processing.",
+      "category": "Python / Data Analysis",
+      "featured_category": "python-analysis",
+      "tags": ["Python", "DuckDB", "Parquet", "BTS", "Aviation"],
+      "featured": true,
+      "home": false,
+      "link": "https://github.com/xavipena-data/bts-delay-propagation",
+      "thumbnail": "assets/img/projects/bts-delay-analysis.jpg",
+      "date": "2026-10-14"
+    },
+    {
+      "id": "atp-tennis-dashboard",
+      "title": "ATP Tennis Analytics Dashboard",
+      "description": "Interactive HTML dashboard exploring ATP tour performance data. Player comparisons, surface analysis and historical rankings built with vanilla JavaScript.",
+      "category": "Data Visualization",
+      "featured_category": "data-viz",
+      "tags": ["HTML", "CSS", "JavaScript", "Tennis", "ATP"],
+      "featured": true,
+      "home": true,
+      "link": "https://github.com/xavipena-data/atp-tennis-dashboard",
+      "thumbnail": "assets/img/projects/atp-tennis-dashboard.jpg",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "costa-brava-tourism",
+      "title": "Costa Brava Tourism: Data & Trends",
+      "description": "Research note analyzing tourism trends in the Costa Brava region using public data from Idescat and INE. Covers seasonality, visitor origins and post-COVID recovery.",
+      "category": "Research & Reporting",
+      "featured_category": "research",
+      "tags": ["Python", "PDF", "Tourism", "Idescat", "INE", "Costa Brava"],
+      "featured": true,
+      "home": false,
+      "link": "projects/costa-brava-tourism/costa-brava-tourism-data-and-trends.pdf",
+      "thumbnail": "assets/img/projects/costa-brava-tourism.jpg",
+      "date": "2026-10-21"
+    }
+  ],
+  "projects": []
+}

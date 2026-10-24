@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Xavi Peña — Portfolio of data, analytics and AI projects.">
+  <title>Portfolio — Xavi Peña</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">xavi<span>peña</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <section style="background: var(--black); padding: 56px 0 48px;">
+    <div class="container">
+      <p style="color: var(--yellow); font-size: 14px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px;">Portfolio</p>
+      <h1 style="color: var(--white); margin-bottom: 16px;">Featured work</h1>
+      <p style="color: var(--gray); font-size: 18px; max-width: 560px;">One project per discipline — the best example of what I can build in each area.</p>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO GRID -->
+  <section class="section">
+    <div class="container">
+      <div id="portfolio-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px;"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Xavi Peña · <a href="mailto:xavi@xavipena.com">xavi@xavipena.com</a> · <a href="https://linkedin.com/in/xavi-peña-gallego-06b857101" target="_blank">LinkedIn</a> · <a href="https://github.com/xavipena-data" target="_blank">GitHub</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    fetch('projects.json')
+      .then(r => r.json())
+      .then(data => {
+        const container = document.getElementById('portfolio-grid');
+        data.portfolio.forEach(p => {
+          const isExternal = p.link.startsWith('http');
+          container.innerHTML += `
+            <a href="${p.link}" ${isExternal ? 'target="_blank"' : ''} class="card" style="display:block;">
+              <div class="card-img" style="background: var(--gray-dark); height: 200px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+                <img src="${p.thumbnail}" alt="${p.title}" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
+                <span style="color: var(--gray); font-size: 13px; position:absolute;">thumbnail</span>
+              </div>
+              <div class="card-body">
+                <p class="card-category">${p.category}</p>
+                <h3 class="card-title">${p.title}</h3>
+                <p class="card-desc">${p.description}</p>
+                <div class="card-tags" style="margin-bottom: 16px;">
+                  ${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+                </div>
+                <span class="btn btn-primary" style="font-size: 13px; padding: 8px 16px;">
+                  ${isExternal ? 'View project ↗' : 'Open PDF ↗'}
+                </span>
+              </div>
+            </a>`;
+        });
+      });
+  </script>
+
+</body>
+</html>

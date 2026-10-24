@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Xavi Peña — All data, analytics and AI projects.">
+  <title>Projects — Xavi Peña</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">xavi<span>peña</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <section style="background: var(--black); padding: 56px 0 48px;">
+    <div class="container">
+      <p style="color: var(--yellow); font-size: 14px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px;">Projects</p>
+      <h1 style="color: var(--white); margin-bottom: 16px;">All projects</h1>
+      <p style="color: var(--gray); font-size: 18px; max-width: 560px;">Everything I've built and published — filterable by technology or topic.</p>
+    </div>
+  </section>
+
+  <!-- FILTERS -->
+  <section style="padding: 32px 0 0;">
+    <div class="container">
+      <div id="filters" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS GRID -->
+  <section class="section" style="padding-top: 32px;">
+    <div class="container">
+      <div id="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px;"></div>
+      <p id="no-results" style="display:none; color: var(--gray); text-align:center; padding: 48px 0;">No projects match the selected filter.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Xavi Peña · <a href="mailto:xavi@xavipena.com">xavi@xavipena.com</a> · <a href="https://linkedin.com/in/xavi-peña-gallego-06b857101" target="_blank">LinkedIn</a> · <a href="https://github.com/xavipena-data" target="_blank">GitHub</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    let allProjects = [];
+    let activeFilter = 'all';
+
+    function renderProjects() {
+      const container = document.getElementById('projects-grid');
+      const noResults = document.getElementById('no-results');
+      const filtered = activeFilter === 'all'
+        ? allProjects
+        : allProjects.filter(p => p.tags.includes(activeFilter) || p.category === activeFilter);
+
+      container.innerHTML = '';
+      if (filtered.length === 0) {
+        noResults.style.display = 'block';
+        return;
+      }
+      noResults.style.display = 'none';
+
+      filtered.forEach(p => {
+        const isExternal = p.link.startsWith('http');
+        container.innerHTML += `
+          <a href="${p.link}" ${isExternal ? 'target="_blank"' : ''} class="card" style="display:block;">
+            <div class="card-img" style="background: var(--gray-dark); height: 180px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+              <img src="${p.thumbnail}" alt="${p.title}" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
+              <span style="color: var(--gray); font-size: 13px; position:absolute;">thumbnail</span>
+            </div>
+            <div class="card-body">
+              <p class="card-category">${p.category}</p>
+              <h3 class="card-title">${p.title}</h3>
+              <p class="card-desc">${p.description}</p>
+              <div class="card-tags">
+                ${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+              </div>
+            </div>
+          </a>`;
+      });
+    }
+
+    function renderFilters(tags) {
+      const container = document.getElementById('filters');
+      const all = ['all', ...tags];
+      all.forEach(tag => {
+        const btn = document.createElement('button');
+        btn.textContent = tag === 'all' ? 'All' : tag;
+        btn.className = 'btn ' + (tag === 'all' ? 'btn-primary' : 'btn-outline');
+        btn.style.fontSize = '13px';
+        btn.style.padding = '6px 14px';
+        btn.addEventListener('click', () => {
+          activeFilter = tag;
+          document.querySelectorAll('#filters button').forEach(b => {
+            b.className = 'btn btn-outline';
+            b.style.fontSize = '13px';
+            b.style.padding = '6px 14px';
+          });
+          btn.className = 'btn btn-primary';
+          btn.style.fontSize = '13px';
+          btn.style.padding = '6px 14px';
+          renderProjects();
+        });
+        container.appendChild(btn);
+      });
+    }
+
+    fetch('projects.json')
+      .then(r => r.json())
+      .then(data => {
+        // Combine portfolio + projects, sorted by date descending
+        allProjects = [...data.portfolio, ...data.projects]
+          .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        // Collect unique tags
+        const tagSet = new Set();
+        allProjects.forEach(p => p.tags.forEach(t => tagSet.add(t)));
+
+        renderFilters([...tagSet].sort());
+        renderProjects();
+      });
+  </script>
+
+</body>
+</html>
